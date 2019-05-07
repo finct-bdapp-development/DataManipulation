@@ -1,0 +1,5 @@
+C:\GitHub development\Data.TableManipulation\Data.TableManipulation\bin\Debug\Data.TableManipulation.dll
+C:\GitHub development\Data.TableManipulation\Data.TableManipulation\bin\Debug\Data.TableManipulation.pdb
+C:\GitHub development\Data.TableManipulation\Data.TableManipulation\obj\Debug\Data.TableManipulation.dll
+C:\GitHub development\Data.TableManipulation\Data.TableManipulation\obj\Debug\Data.TableManipulation.pdb
+C:\GitHub development\Data.TableManipulation\Data.TableManipulation\obj\Debug\Data.TableManipulation.csprojResolveAssemblyReference.cache
