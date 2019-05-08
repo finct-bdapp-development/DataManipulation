@@ -114,6 +114,9 @@ namespace Data.TableManipulation
                         excludevalues.RemoveAt(0);
                         ExcludeMatchingRows(ref temp, excludeField, excludevalues.ToArray());
                         break;
+                    case "ReplicateData":
+                        ReplicateDataInAnExistingField(ref temp, setting[0], setting[1]);
+                        break;
                     default:
                         throw new Exception("The settings file includes an action (" + settings[2] + ") that is not currently supported.");
                 }
@@ -336,6 +339,27 @@ namespace Data.TableManipulation
                     counter--;
                 }
             }
+        }
+
+        /// <summary>
+        /// Replicates the data in an existing field into a new field
+        /// </summary>
+        /// <param name="data">The data table to be manipulated</param>
+        /// <param name="originalField">The name of the field that holds the data to be replicated</param>
+        /// <param name="fieldToReplicateInto">The name of the new field that data will be replicated into</param>
+        private void ReplicateDataInAnExistingField(ref DataTable data, string originalField, string fieldToReplicateInto)
+        {
+            if(data.Columns.IndexOf(fieldToReplicateInto) != -1)
+            {
+                throw new Exception("The system does not allow data to be replicated into an existing data field.");
+            }
+            DataColumn col = new DataColumn(fieldToReplicateInto, data.Columns[originalField].DataType);
+            data.Columns.Add(col);
+            foreach(DataRow item in data.Rows)
+            {
+                item[fieldToReplicateInto] = item[originalField].ToString();
+            }
+            data.AcceptChanges();
         }
 
         #endregion
